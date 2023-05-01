@@ -11,14 +11,13 @@ def linked_list_values(head):
   return values
 
 #recursive time O(n) and space O(n)
-class Node:
-  def __init__(self, val):
-    self.val = val
-    self.next = None
-
 def linked_list_values(head):
-  new_list = []
-  while head is not None:
-    new_list.append(head.val)
-    head = head.next
-  return new_list
+  values = []
+  _linked_list_values(head, values)
+  return values
+
+def _linked_list_values(head, values):
+  if head is None:
+    return
+  values.append(head.val)
+  _linked_list_values(head.next, values)
